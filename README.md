@@ -73,7 +73,7 @@ rgamma_mean_sd <- function(n_samples, mean_x, sd_x, N){
 rbeta_mean_sd <- function(n_samples, mean_x, N){
   rbeta(n = n_samples, shape1 = mean_x * N, shape2 = N * (1 - mean_x))
 }
-# Shape 1= apha, and shape 2= beta
+#Shape1= apha, and shape 2= beta
 # lognormal risks 
 rlnorm_ci <- function(n_samples, mean_x, lb_x, ub_x){
   rlnorm(n_samples, meanlog = log(mean_x), 
