@@ -41,7 +41,7 @@ DiscRate <-	0.015
 
 n_samples <- 5000 
 
-# log-normal distribution ===========
+# log-normal distribution 
 rlnorm_disutility <- function(n_samples, util_mean, util_sd, N){ # generate random draws of disutilities using a log-normal distribution
   disutil_mean <- 1 - util_mean 
   util_se <- util_sd / sqrt(N)  
@@ -51,7 +51,7 @@ rlnorm_disutility <- function(n_samples, util_mean, util_sd, N){ # generate rand
   1 - rlnorm(n = n_samples, meanlog = disutil_mean_adj, sdlog = disutil_se_adj)
 }
 
-# correlated log-normal distributin
+# correlated log-normal distribution
 mvrlnorm_disutility <- function(n_samples, util_mean, util_sd, util_rho, N){
   disutil_mean <- 1 - util_mean
   util_se <- util_sd / sqrt(N)
@@ -61,7 +61,7 @@ mvrlnorm_disutility <- function(n_samples, util_mean, util_sd, util_rho, N){
   disutil_Sigma_adj <- disutil_se_adj %*% t(disutil_se_adj) * util_rho # covariance matrix, which combines the SD of the adjusted disutilities with correlation matrix util_rho
   1 - exp(mvrnorm(n = n_samples, mu = disutil_mean_adj, Sigma = disutil_Sigma_adj)) # sigma = covaraince matrix, mu= mean vector (mean of log disutilities) that describe the mutlivariate distribution we are sampling from
 }
-# Gamma distribution ==========
+# Gamma distribution
 rgamma_mean_sd <- function(n_samples, mean_x, sd_x, N){
   se_x <- sd_x / sqrt(N)
   shape <- (mean_x / se_x)^2
@@ -69,17 +69,16 @@ rgamma_mean_sd <- function(n_samples, mean_x, sd_x, N){
   rgamma(n = n_samples, shape = shape, scale = scale)
 }
 
-# beta distribution =========
+# beta distribution 
 rbeta_mean_sd <- function(n_samples, mean_x, N){
   rbeta(n = n_samples, shape1 = mean_x * N, shape2 = N * (1 - mean_x))
 }
 # Shape 1= apha, and shape 2= beta
-# lognormal risks ===========
+# lognormal risks 
 rlnorm_ci <- function(n_samples, mean_x, lb_x, ub_x){
   rlnorm(n_samples, meanlog = log(mean_x), 
          sdlog = (log(ub_x) - log(lb_x)) / (1.96 * 2))
 }
-
 
 mytwig <- twig() +
   decisions(names=c(UsualCare,CardioMEMS)) +
