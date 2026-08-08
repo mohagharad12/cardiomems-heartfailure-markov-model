@@ -26,8 +26,6 @@ This repository represents an active research project. The code will continue to
 This repository is intended to demonstrate the methodological implementation of the model in R. It does not necessarily represent the #clear my environment
 
 
-## CardioMEMS Markov Model: Probabilistic Sensitivity Analysis
-
 rm(list=ls())
 
 #clear my R console
