@@ -6,9 +6,7 @@ This repository contains an R implementation of a cohort-based Markov model deve
 
 ## Project Status
 
-**Work in Progress**
-
-This repository represents an active research project. The code will continue to evolve throughout the peer review and publication process.
+Model development and analysis are complete. The manuscript is awaiting peer review and publication. The code may be updated in response to reviewer feedback.
 
 ## Model Features
 
